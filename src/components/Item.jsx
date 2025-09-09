@@ -4,11 +4,7 @@ import './Item.css'
 import StateComponent from './StateComponent';
 
 function Item( {title, img, price} ){
-  // Destructuración / Destructuring
-  //const { title, img, price } = props;
-  console.log("Renderizmos Item - Props:", title, img, price)
-
-  // 2. Componentes retornan JSX/HTML
+  
   return ( 
     <div className="item-card">
       <h2 className="item-card-title"> {title} </h2>
@@ -18,7 +14,6 @@ function Item( {title, img, price} ){
         src={img}
         alt={title}
       /> 
-      {/* Self-closing tag */}
       <h3 className="item-card-price">Precio: $ {price}</h3>
       <StateComponent/>
       <ButtonAddToCart />
@@ -26,5 +21,4 @@ function Item( {title, img, price} ){
   )
 }
 
-// 3. Exportamos el componente
 export default Item;

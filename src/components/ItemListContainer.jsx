@@ -1,13 +1,18 @@
-import products from '../data/products'
 import Item from './Item';
 import getMockAPIData from '../data/mockAPI';
+import { useState, useEffect } from 'react';
 
 export default function ItemListContainer( props ){
-  console.log(
+  // 1. useState -> para guardar el listado de items
+  const [products, setProducts] = useState([]);
+
+  // 2. useEffect -> para controlar la petición de Datos a la API (mockAPI)
+  useEffect( () => {
+    // 3. fetch o solicitud simulada / montaje
     getMockAPIData()
-    .then( ( productList) => {
+    .then( (productList) => {
         console.log("Promesa terminada")
-        console.log(productList);
+        setProducts(productList);
      })
      .catch( (error) => {
         console.log("Error solicitando los datos", error);
@@ -19,12 +24,15 @@ export default function ItemListContainer( props ){
     // * Promise.then() -> cuando la promesa se cumpla
     // * Promise.catch() -> cuando la promesa rechaza (error)
     // ? Async/Await -> Promesas -> SugarSyntax
-  );
+  }, [])
+
 
   return (
     <div >
         <h2>{props.greeting}</h2>
-         <div>
+        {/* renderizado condicional */}
+        { products.length === 0 ? "Cargando..." : ""}
+        <div>
         <h4>Nuestros productos</h4>   
         <div style={ { display: "flex", gap: "12px", flexDirection: "row", flexWrap: "wrap"} }>
         {

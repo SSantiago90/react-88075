@@ -1,3 +1,5 @@
+import './CartWidget.css';
+
 export default function CartWidget(){
   return (
     <div>

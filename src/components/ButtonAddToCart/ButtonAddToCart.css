@@ -1,0 +1,20 @@
+/* src/components/ButtonAddToCart/ButtonAddToCart.css */
+
+.button-add-to-cart {
+  background-color: var(--b-btn-bg);
+  color: var(--b-btn-txt);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: auto;
+}
+
+.button-cart small {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #666;
+}

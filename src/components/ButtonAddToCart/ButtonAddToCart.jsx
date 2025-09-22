@@ -1,5 +1,6 @@
 // * Estado de componentes
 import { useState } from "react";
+import './ButtonAddToCart.css';
 
 export default function ButtonAddToCart(  ){
   //let statusInCart = "No agregaste este item al carrito."

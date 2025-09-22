@@ -1,9 +1,8 @@
-// 1. Componentes -> Nombre en mayúscula
-import ButtonAddToCart from './ButtonAddToCart';
+import StateComponent from '../StateComponent/StateComponent';
 import './Item.css'
-import StateComponent from './StateComponent';
+import { Link } from 'react-router';
 
-function Item( {title, img, price} ){
+function Item( {id, title, img, price} ){
   
   return ( 
     <div className="item-card">
@@ -16,7 +15,13 @@ function Item( {title, img, price} ){
       /> 
       <h3 className="item-card-price">Precio: $ {price}</h3>
       <StateComponent/>
-      <ButtonAddToCart />
+      <div style={{ textAlign: "center"}}>
+        {/* <a href=""> -> <Link to="" */}
+        <Link to={ `/detail/${id}`}>
+          <button>Ir a ve detalle</button>
+        </Link>
+      </div>
+      
     </div>
   )
 }

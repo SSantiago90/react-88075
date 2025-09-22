@@ -1,0 +1,23 @@
+/* src/components/CartWidget/CartWidget.css */
+
+.cart-widget {
+  position: relative;
+  cursor: pointer;
+}
+
+.cart-icon {
+  font-size: 1.5rem;
+  color: var(--b-txt);
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: var(--b-link);
+  color: #fff;
+  border-radius: 50%;
+  padding: 0.25em 0.6em;
+  font-size: 0.8rem;
+  font-weight: bold;
+}

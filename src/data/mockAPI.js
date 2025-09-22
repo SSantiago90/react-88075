@@ -1,7 +1,7 @@
 import products from './products'
 
 function getMockAPIData(){
-    const promiseProducts = new Promise( (resolve,reject) => {
+    const promiseProducts = new Promise( (resolve) => {
       setTimeout( () => {
         console.log("devolviendo datos...")
         resolve(products)

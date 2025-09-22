@@ -1,0 +1,89 @@
+import StateComponent from '../ColorPick/StateComponent';
+import './Item.css'
+
+
+function Item( {title, imgURL, price} ){
+  
+  return ( 
+    <div className="item-card">
+      <h2 className="item-card-title"> {title} </h2>
+      <img 
+        className="item-card-img"
+        height="300"
+        src={imgURL}
+        alt={title}
+      /> 
+      <h3 className="item-card-price">Precio: $ {price}</h3>
+      <StateComponent/>
+      <div style={{ textAlign: "center"}}>
+          <button>Ir a ve detalle</button>
+      </div>
+      
+    </div>
+  )
+}
+
+export default Item;
+
+/* src/components/Item/Item.css */
+/* 
+.item-card {
+  text-align: center;
+  background-color: var(--b-bg-1);
+  border: 1px solid #3b4252;
+  border-radius: 0.55rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.item-card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.item-card-content {
+  padding: 1rem;
+  flex-grow: 1;
+  font-size: 0.825rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-card-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.075rem;
+  text-transform: uppercase;
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+.item-card-price {
+  font-size: 1.45rem;
+  color: var(--b-link);
+  margin-bottom: 1rem;
+}
+
+.item-card-buttons{ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.item-card-footer{
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  margin-top: 0.25rem;
+}
+
+.item-card button {
+  background-color: var(--b-btn-bg);
+  color: var(--b-btn-txt);
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+} */

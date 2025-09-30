@@ -11,9 +11,11 @@ function NavBar() {
       </Link>
       <ul className="nav-links">
         <li>
+
           <Link to="/category/accessories">
-          Accesorios
+            Accesorios
           </Link>
+
         </li>
         <li>
            <Link to="/category/home">
@@ -32,7 +34,7 @@ function NavBar() {
         </li>      
       </ul>
       <Link to="/cart">
-       <span><CartWidget /></span>
+        <CartWidget />
       </Link>
     </nav>
   )

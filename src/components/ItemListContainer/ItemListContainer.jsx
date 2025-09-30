@@ -39,7 +39,7 @@ export default function ItemListContainer( props ){
 
   return (
     <div className="item-list-container" >
-        <h2>{props.greeting}</h2>
+        <h2>{props.children}</h2>
         { isLoading 
           ? <p className="item-list-container__loading">Cargando...</p> 
           : ""

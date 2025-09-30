@@ -3,23 +3,36 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import NavBar from './components/NavBar/NavBar';
 import { BrowserRouter, Routes, Route } from 'react-router';
+import { CartProvider } from './context/cartContext';
+import CartContainer from './components/CartContainer/CartContainer';
 
-// 1. BrowserRouter como Comp Padre
-// 2. Definir el area donde vamos a navegar con <Routes>
-// 3. Crear rutas con <Route>: definiendo el path (url) y el contenido
+//cartContext.Provider
+
 export default function App() {
   return (
-    <BrowserRouter>  
-        <NavBar />
-
-        <Routes>
-          <Route path="/" element={<ItemListContainer greeting="Bienvenidos!"/>}/>
-          <Route path="/category/:categParam" element={ <ItemListContainer />} />
-          <Route path="/detalle/:idParam" element={ <ItemDetailContainer/>} /> 
-          <Route path="*"  element={ <h1>404: Página no encontrada</h1>} /> 
-        </Routes>
-        
-    </BrowserRouter>)     
+    <CartProvider>
+      <BrowserRouter>  
+          <NavBar />
+          <MyButton>
+            Soy una prop children.
+          </MyButton>
+          <Routes>
+            <Route path="/" element={<ItemListContainer>Bienvenidos a mi tienda</ItemListContainer>}/>
+            <Route path="/category/:categParam" element={ <ItemListContainer />} />
+            <Route path="/detalle/:idParam" element={ <ItemDetailContainer/>} /> 
+            <Route path="/cart" element={ <CartContainer/> } />
+            <Route path="*"  element={ <h1>404: Página no encontrada</h1>} /> 
+          </Routes>
+          
+      </BrowserRouter>
+    </CartProvider>
+    )     
 }
 
-// layout
+function MyButton(props){
+  return (
+    <button>
+      {props.children}
+    </button>
+  )
+}

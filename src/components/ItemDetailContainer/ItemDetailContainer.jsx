@@ -1,6 +1,6 @@
 import StateComponent from "../ColorPick/StateComponent"
 import { useParams } from "react-router"
-import { getProductById } from "../../data/mockAPI";
+import { getProductById } from "../../data/firebase";
 import { useEffect, useState, useContext } from "react";
 import cartContext from "../../context/cartContext";
 

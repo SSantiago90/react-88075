@@ -1,8 +1,27 @@
 import { useContext } from "react";
 import cartContext from "../../context/cartContext";
+import { createOrder } from "../../data/firebase";
 
 function CartContainer(){
-  const { cartItems, removeItem } = useContext(cartContext)
+  const { cartItems, removeItem, clearCart } = useContext(cartContext)
+
+  const orderData = {
+    buyer: { name: "Luciano", email: "luciano@luciano", phone: "123456" },
+    items: cartItems,
+    price: 999,
+    date: new Date()
+  }
+
+  async function handleCheckout(){
+    const newOrder = await createOrder(orderData);
+    clearCart();
+    alert(`Compra realizada con éxito! - tu id de compra es: ${newOrder.id}`)
+    // Alternativas a ALERT
+    // 1. Toast/sweetalert
+    // 2. Renderizado condicional - > setOrderCreated(newOrder.id)
+    //    { orderCreated ? "Gracias por tu compra" : ... }
+    // 3. Redirigir al usuario /orders/orderid ( getDoc( ordersRef ) )
+  }
 
   return (
     <div>
@@ -19,7 +38,7 @@ function CartContainer(){
             )
         }
       </div>
-      <button>Ir a pagar</button>
+      <button onClick={handleCheckout}>Comprar!</button>
     </div>
   )
 }

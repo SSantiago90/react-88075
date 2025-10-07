@@ -1,5 +1,5 @@
 import Item from '../Item/Item';
-import getMockAPIData, { getProductsByCateg } from '../../data/mockAPI';
+import { getProducts, getProductsByCateg } from '../../data/firebase';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import './ItemListContainer.css';
@@ -19,7 +19,7 @@ export default function ItemListContainer( props ){
       .finally( () => setIsLoading(false))
     }
     else {    
-      getMockAPIData()
+      getProducts()
       .then( (productList) => {
           console.log("Promesa terminada")
           setProducts(productList);

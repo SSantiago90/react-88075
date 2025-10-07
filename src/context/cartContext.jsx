@@ -62,10 +62,12 @@ export function CartProvider(props) {
 
   // function calculateTotalPrice(){}
 
-  // function clearCart(){}
+  function clearCart(){
+    setCartItems([])
+  }
 
   return (
-    <cartContext.Provider value={ {cartItems, addToCart, removeItemCompleto, countItems, removeItem} }>
+    <cartContext.Provider value={ {cartItems, addToCart, removeItemCompleto, countItems, removeItem, clearCart} }>
        { props.children }
     </cartContext.Provider>
   )

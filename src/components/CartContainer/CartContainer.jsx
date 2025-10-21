@@ -1,18 +1,21 @@
 import { useContext } from "react";
 import cartContext from "../../context/cartContext";
 import { createOrder } from "../../data/firebase";
+import FormCheckout from "./FormCheckout";
 
 function CartContainer(){
   const { cartItems, removeItem, clearCart } = useContext(cartContext)
 
-  const orderData = {
-    buyer: { name: "Luciano", email: "luciano@luciano", phone: "123456" },
-    items: cartItems,
-    price: 999,
-    date: new Date()
-  }
 
-  async function handleCheckout(){
+  async function handleCheckout(formData){
+    const orderData = {
+      buyer: formData,
+      items: cartItems,
+      price: 999,
+      date: new Date()
+    }
+
+    console.log("llamando a firebase, datos de comprador", formData)
     const newOrder = await createOrder(orderData);
     clearCart();
     alert(`Compra realizada con éxito! - tu id de compra es: ${newOrder.id}`)
@@ -22,6 +25,8 @@ function CartContainer(){
     //    { orderCreated ? "Gracias por tu compra" : ... }
     // 3. Redirigir al usuario /orders/orderid ( getDoc( ordersRef ) )
   }
+
+  // TODO: renderizado condicional cuando el carrito esté vacío
 
   return (
     <div>
@@ -38,7 +43,7 @@ function CartContainer(){
             )
         }
       </div>
-      <button onClick={handleCheckout}>Comprar!</button>
+      <FormCheckout handleCheckout={handleCheckout} />      
     </div>
   )
 }

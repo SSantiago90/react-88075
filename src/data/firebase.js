@@ -4,12 +4,12 @@ import { collection, doc, query, where, getDocs, getDoc, addDoc, getFirestore} f
 import products from './products';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDDBQUVp11UtdAApwfvm7ibRk8qe-uHHCs",
+  apiKey: import.meta.env.VITE_FS_APIKEY,
   authDomain: "react-lunes.firebaseapp.com",
-  projectId: "react-lunes",
+  projectId: import.meta.env.VITE_FS_PROJECT_ID,
   storageBucket: "react-lunes.firebasestorage.app",
   messagingSenderId: "826651368645",
-  appId: "1:826651368645:web:81047e800174c61e8124ac"
+  appId: import.meta.env.VITE_FS_APP_ID
 };
 
 const app = initializeApp(firebaseConfig);
@@ -35,6 +35,11 @@ export async function getProducts(){
    return dataDocs
 }
 
+/**
+ * Obtiene un unico item de firestore
+ * @param { string } idParam - Representa el ID del documento en Firestore
+ * @returns una promesa a resolver con la data del documento de Firestore
+ */
 export async function getProductById(idParam){
   const docRef = doc(db, "products", idParam);
   const docSnapshot = await getDoc(docRef)
@@ -44,6 +49,7 @@ export async function getProductById(idParam){
   return docData;
 }
 
+// ? Esta funcion retorna los productos ordenados segun la categoria
 export async function getProductsByCateg(categParam){
    const productsRef = collection(db, "products");
 
@@ -61,8 +67,8 @@ export async function getProductsByCateg(categParam){
 
 //  2. Crear una "orden" de compras en firebase
 export async function createOrder( orderData){
-   const productsRef = collection(db, "orders");
-   const newDoc = await addDoc(productsRef, orderData)   
+   const ordersRef = collection(db, "orders");
+   const newDoc = await addDoc(ordersRef, orderData)   
    return newDoc;
 }
 

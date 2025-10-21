@@ -1,12 +1,18 @@
-# React + Vite
+## How To Use
 
-## Pre-entrega Nº 2
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
-- Instalar y configurar los componetes de react-router
-  - npm i react-router
-  - BrowserRouter,Routes,Route
-- Crear links (componente Link) para navegar en NavBar y en Item
-- Crear el componente ItemDetail
-- Utilizar useParams() para leer parametros de la URL
-- Mostrar en ItemDetailContainer detalles de un producto
-- Mostrar en ItemListContainer categorias filtradas según la URL -> useParams
+```bash
+# Clone this repository
+$ git clone https://github.com/usuario/react-app-1
+
+# Go into the repository
+$ cd react-app-1
+
+# Install dependencies
+$ npm install
+
+# Run the app
+$ npm run dev
+```
+
